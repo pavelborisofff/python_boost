@@ -4,7 +4,7 @@ import turtle
 from typing import List
 
 
-def draw(drawer: turtle.Turtle, turn_num: int, matrix: List[List], array: List[List]):
+def draw(drawer: turtle.Turtle, turn_num: int, matrix: List[List[int]], array: List[List[int]]):
     cell = 25
     font_size = 25
     width = len(matrix[0])
@@ -44,7 +44,7 @@ def draw(drawer: turtle.Turtle, turn_num: int, matrix: List[List], array: List[L
         drawer.goto(cx - width * cell, cy - cell)
 
 
-def turn(turn_num: int, matrix: List[List], array: List[List]):
+def turn(turn_num: int, matrix: List[List[int]], array: List[List[int]]) -> bool:
     height = len(matrix)
     width = len(matrix[0])
     passable = False  # Case of dead end
@@ -73,7 +73,7 @@ def turn(turn_num: int, matrix: List[List], array: List[List]):
     return passable
 
 
-def can_exit(array: List[List]) -> bool:
+def can_exit(array: List[List[int]]) -> bool:
     matrix = [[0 for _ in range(len(array[0]))] for _ in range(len(array))]
 
     sy, sx = (0, 0)
